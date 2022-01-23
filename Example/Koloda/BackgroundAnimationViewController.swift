@@ -8,6 +8,7 @@
 
 import UIKit
 import Koloda
+import pop
 
 private let numberOfCards: Int = 5
 private let frameAnimationSpringBounciness: CGFloat = 9
@@ -69,8 +70,11 @@ extension BackgroundAnimationViewController: KolodaViewDelegate {
         return true
     }
     
-    func koloda(kolodaBackgroundCardAnimation koloda: KolodaView) -> UIViewPropertyAnimator? {
-        return UIViewPropertyAnimator(duration: 0.2, dampingRatio: (frameAnimationSpringBounciness - 20) / 20, animations: nil)
+    func koloda(kolodaBackgroundCardAnimation koloda: KolodaView) -> POPPropertyAnimation? {
+        let animation = POPSpringAnimation(propertyNamed: kPOPViewFrame)
+        animation?.springBounciness = frameAnimationSpringBounciness
+        animation?.springSpeed = frameAnimationSpringSpeed
+        return animation
     }
 }
 

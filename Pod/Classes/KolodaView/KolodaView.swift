@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import pop
 
 // Default values
 private let defaultCountOfVisibleCards = 3
